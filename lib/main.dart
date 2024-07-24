@@ -65,7 +65,7 @@ class _NavigationWidgetState extends State<NavigationWidget>{
       ),
       body: <Widget> [
         // 喂奶页面
-        FeedRecord(),
+        const FeedRecord(),
         // 计划页面
         Container(
           margin: const EdgeInsets.all(10.0),
@@ -96,8 +96,15 @@ class FeedRecord extends StatefulWidget {
 
 class _FeedRecordState extends State<FeedRecord>{
 
-  final _names = ['Andrew', 'Bob', 'Charles'];
-  int _counter = 0;
+  bool visible = false;
+
+  final _feedRecords = [];
+  TimePickerEntryMode entryMode = TimePickerEntryMode.dial;
+  Orientation? orientation;
+  TextDirection textDirection = TextDirection.ltr;
+  MaterialTapTargetSize tapTargetSize = MaterialTapTargetSize.padded;
+  bool use24HourTime = false;
+
 
   @override
   Widget build(BuildContext context) {
@@ -106,35 +113,71 @@ class _FeedRecordState extends State<FeedRecord>{
       child: Column(
         children: <Widget>[
           // 新增喂奶记录按钮
-          FloatingActionButton(
+          FloatingActionButton.extended(
             onPressed: () {
               setState(() {
-                _names.add('Someone($_counter)');
-                _counter ++;
+                visible = !visible;
               });
             },
-            tooltip: '新增喂奶记录',
-            child: const Icon(Icons.add),
+            // onPressed: () async {
+            //   final TimeOfDay? time = await showTimePicker(
+            //       context: context,
+            //       initialTime: TimeOfDay.now(),
+            //       initialEntryMode: entryMode,
+            //       orientation: orientation,
+            //       builder: (BuildContext context, Widget? child) {
+            //         return Theme(
+            //           data: Theme.of(context).copyWith(
+            //             materialTapTargetSize: tapTargetSize,
+            //           ),
+            //           child: Directionality(
+            //             textDirection: textDirection,
+            //             child: MediaQuery(
+            //               data: MediaQuery.of(context).copyWith(
+            //                 alwaysUse24HourFormat: use24HourTime,
+            //               ),
+            //               child: child!,
+            //             ),
+            //           ),
+            //         );
+            //       }
+            //   );
+            //   setState(() {
+            //     if (time != null) {
+            //       _feedRecords.add('${time!.hour}:${time!.minute}');
+            //     }
+            //   });
+            // },
+
+            label: const Text('新增喂奶记录'),
+            icon: const Icon(Icons.add),
           ),
 
+          // 喂奶记录填写栏
+          Offstage(
+            offstage: visible,
+            child: const TextField(
+              decoration: InputDecoration(
+                hintText: '请输入喂奶时间',
+              ),
+            ),
+          ),
           // 今日喂奶记录列表
           Expanded(
             child: ListView.builder(
-                itemCount: _names.length,
+                itemCount: _feedRecords.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Container(
                       width: double.infinity,
                       height: 50,
                       alignment: Alignment.center,
-                      child: Text(_names[index]));
+                      child: Text(_feedRecords[index]));
                 }),
           ),
         ],
       ),
     );
   }
-
-
 
 }
 
