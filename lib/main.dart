@@ -106,6 +106,43 @@ class _FeedRecordState extends State<FeedRecord>{
   bool use24HourTime = false;
 
 
+  Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Basic dialog title'),
+          content: const Text(
+            'A dialog is a type of modal window that\n'
+                'appears in front of app content to\n'
+                'provide critical information, or prompt\n'
+                'for a decision to be made.',
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Disable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Enable'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -113,12 +150,23 @@ class _FeedRecordState extends State<FeedRecord>{
       child: Column(
         children: <Widget>[
           // 新增喂奶记录按钮
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              const Text("今日喂奶记录"),
+              FloatingActionButton.extended(
+                onPressed: () {
+                  setState(() {
+                    visible = !visible;
+                  });
+                },
+                label: const Text('新增喂奶记录'),
+                icon: const Icon(Icons.add),
+              ),
+            ],
+          ),
           FloatingActionButton.extended(
-            onPressed: () {
-              setState(() {
-                visible = !visible;
-              });
-            },
+            onPressed: () => _dialogBuilder(context),
             // onPressed: () async {
             //   final TimeOfDay? time = await showTimePicker(
             //       context: context,
@@ -178,7 +226,6 @@ class _FeedRecordState extends State<FeedRecord>{
       ),
     );
   }
-
 }
 
 
