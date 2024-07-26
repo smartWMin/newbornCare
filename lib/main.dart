@@ -149,22 +149,51 @@ class _FeedRecordState extends State<FeedRecord>{
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: <Widget>[
-          // 新增喂奶记录按钮
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              const Text("今日喂奶记录"),
-              FloatingActionButton.extended(
+          AppBar(
+            title: const Text('今日喂奶记录'),
+            centerTitle: true,
+            titleTextStyle: const TextStyle(
+              color: Colors.deepPurple,
+              fontSize: 20.0,
+            ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.add_circle_outline),
+                tooltip: "新增喂奶记录",
                 onPressed: () {
                   setState(() {
                     visible = !visible;
                   });
                 },
-                label: const Text('新增喂奶记录'),
-                icon: const Icon(Icons.add),
+              ),
+              IconButton(
+                icon: const Icon(Icons.search),
+                tooltip: "历史记录",
+                onPressed: () {
+                  setState(() {
+                    visible = !visible;
+                  });
+                },
               ),
             ],
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: <Widget>[
+          //     const Text("今日喂奶记录"),
+          //
+          //     FloatingActionButton.extended(
+          //       onPressed: () {
+          //         setState(() {
+          //           visible = !visible;
+          //         });
+          //       },
+          //       label: const Text('新增喂奶记录'),
+          //       icon: const Icon(Icons.add),
+          //     ),
+          //   ],
+          // ),
           FloatingActionButton.extended(
             onPressed: () => _dialogBuilder(context),
             // onPressed: () async {
