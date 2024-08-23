@@ -1,25 +1,26 @@
 
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:newborncare/components/CustomText.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
 
+  final TextDirection defaultTextDirection = TextDirection.ltr;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200,
+      height: 80  ,
       color: Colors.white,
-      constraints: BoxConstraints.expand(
-        height: Theme.of(context).textTheme.headlineMedium!.fontSize! * 1.1 + 200.0,
-      ),
-      alignment: Alignment.center,
       padding: const EdgeInsets.all(8.0),
       child: Row(
         textDirection : TextDirection.ltr,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:<Widget> [
-          // 左侧菜单按钮
+          // 左侧菜单按
           const Icon(
             Icons.menu,
             size: 30,
@@ -29,29 +30,15 @@ class Header extends StatelessWidget {
           const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(
-                '小满',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Text(
-                '1月23天',
-                textDirection: TextDirection.ltr,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              CustomText(text: "柳小满", fontSize: 15, isBold: true),
+              CustomText(text: "1月23天", fontSize: 15)
             ],
           ),
           // 新生儿照片信息
           Container(
-            width: 100,
-            height: 100,
-            padding: const EdgeInsets.all(20),
+            width: 50,
+            height: 50,
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               color: const Color(0xff7c94b6),
               image: const DecorationImage(

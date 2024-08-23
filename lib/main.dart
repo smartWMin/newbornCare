@@ -11,6 +11,14 @@ class NewBornCare extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const Header();
+    return Container(
+      alignment: Alignment.center,
+      child: const Column(
+        children: [
+          Header(),
+          Text("NewBornCare", textDirection: TextDirection.ltr),
+        ],
+      ),
+    );
   }
 }
