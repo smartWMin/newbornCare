@@ -1,21 +1,17 @@
 
-import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:newborncare/components/CustomText.dart';
+import 'package:newbornCare/components/CustomText.dart';
 
 class Header extends StatelessWidget {
   const Header({super.key});
 
-  final TextDirection defaultTextDirection = TextDirection.ltr;
-
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80  ,
+      height: 70,
       color: Colors.white,
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(6.0),
       child: Row(
         textDirection : TextDirection.ltr,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -23,33 +19,32 @@ class Header extends StatelessWidget {
           // 左侧菜单按
           const Icon(
             Icons.menu,
-            size: 30,
+            size: 35,
             textDirection: TextDirection.ltr,
           ),
           // 新生儿信息
           const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CustomText(text: "柳小满", fontSize: 15, isBold: true),
-              CustomText(text: "1月23天", fontSize: 15)
+              CustomText(text: "柳小满", fontSize: 18, isBold: true),
+              CustomText(text: "1月23天", fontSize: 13)
             ],
           ),
           // 新生儿照片信息
           Container(
-            width: 50,
-            height: 50,
-            padding: const EdgeInsets.all(10),
+            width: 45,
+            height: 45,
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: const Color(0xff7c94b6),
               image: const DecorationImage(
-                image: NetworkImage('https://flutter.github.io/assets-for-api-docs/assets/widgets/owl-2.jpg'),
-                fit: BoxFit.scaleDown,
+                image: AssetImage('images/tom.png'),
+                fit: BoxFit.cover,
               ),
               border: Border.all(
-                width: 2,
-                color: Colors.deepPurpleAccent
+                width: 3,
+                color: Colors.lightGreenAccent
               ),
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(13),
             ),
           )
         ],
