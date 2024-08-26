@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:newbornCare/components/CustomText.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  const Header({super.key, required this.height});
+
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: height > 0? height : 100,
       color: Colors.white,
       padding: const EdgeInsets.all(6.0),
       child: Row(
