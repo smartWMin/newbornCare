@@ -12,17 +12,14 @@ class Header extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height > 0? height : 100,
-      color: Colors.white,
       padding: const EdgeInsets.all(6.0),
       child: Row(
-        textDirection : TextDirection.ltr,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:<Widget> [
           // 左侧菜单按
           const Icon(
             Icons.menu,
             size: 35,
-            textDirection: TextDirection.ltr,
           ),
           // 新生儿信息
           const Column(
