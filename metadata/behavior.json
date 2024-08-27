@@ -1,0 +1,108 @@
+[
+  {
+    "behaviorName":"哺乳",
+    "index": 0,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"奶瓶喂哺",
+    "index": 1,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"辅食",
+    "index": 2,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"尿布",
+    "index": 3,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"睡眠",
+    "index": 4,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"起床",
+    "index": 5,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"挤奶",
+    "index": 6,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"小便",
+    "index": 7,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"大便",
+    "index": 8,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"大便&小便",
+    "index": 9,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"体重",
+    "index": 10,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"身高",
+    "index": 11,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"头部",
+    "index": 12,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"体温",
+    "index": 13,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"洗澡",
+    "index": 14,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"药品",
+    "index": 15,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"医院",
+    "index": 16,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"疫苗",
+    "index": 17,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"记录",
+    "index": 18,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"日记",
+    "index": 19,
+    "assertImagePath":"tom.png"
+  },
+  {
+    "behaviorName":"宝宝哭闹",
+    "index": 20,
+    "assertImagePath":"tom.png"
+  }
+
+]

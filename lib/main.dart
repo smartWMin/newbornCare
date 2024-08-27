@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:newbornCare/consist/BabyCareType.dart';
 import 'package:newbornCare/consist/Header.dart';
 import 'package:newbornCare/consist/MyTimePicker.dart';
 
@@ -29,10 +30,16 @@ class NewBornCare extends StatelessWidget {
           maxWidth: double.infinity,
         ),
         alignment: Alignment.center,
-        child: const Column(
+        child: Column(
           children: [
-            Header(),
-            MyTimePicker()
+            const Header(),
+            const MyTimePicker(),
+            Container(
+              height: 630,
+              color: Colors.deepOrangeAccent,
+              child: const Text('Hello World'),
+            ),
+            const BabyCareType()
           ],
         ),
       )
