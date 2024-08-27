@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:newbornCare/consist/Header.dart';
 import 'package:newbornCare/consist/MyTimePicker.dart';
 
 void main() {
-  runApp(const NewBornCare());
+  runApp(NewBornCare());
 }
 
 class NewBornCare extends StatelessWidget {
-  const NewBornCare({super.key});
+  NewBornCare({super.key});
 
+  int selectedIndex = 0;
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -32,8 +31,8 @@ class NewBornCare extends StatelessWidget {
         alignment: Alignment.center,
         child: const Column(
           children: [
-            Header(height: 100),
-            MyTimePicker(height: 100)
+            Header(),
+            MyTimePicker()
           ],
         ),
       )

@@ -1,5 +1,5 @@
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget{
   const CustomText({super.key, required this.text, required this.fontSize, this.isBold = false});
@@ -8,7 +8,7 @@ class CustomText extends StatelessWidget{
   final double fontSize;
   // 文本
   final String text;
-
+  
   final TextDirection defaultTextDirection = TextDirection.ltr;
 
   final bool isBold;
@@ -18,8 +18,10 @@ class CustomText extends StatelessWidget{
     return Text(
       text,
       style: TextStyle(
+        color: Colors.black,
+        decoration: TextDecoration.none,
         fontSize: fontSize,
-        fontWeight: isBold ? FontWeight.bold : FontWeight.normal,
+        fontWeight: isBold ? FontWeight.w600 : FontWeight.normal,
       ),
       textDirection: defaultTextDirection,
     );

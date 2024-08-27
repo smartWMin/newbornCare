@@ -3,8 +3,7 @@ import 'package:newbornCare/components/CustomText.dart';
 import 'package:newbornCare/utils/CustomDateUtils.dart';
 
 class MyTimePicker extends StatefulWidget {
-  const MyTimePicker({super.key, required this.height});
-  final double height;
+  const MyTimePicker({super.key});
 
   @override
   State createState() => _MyTimePickerState();
@@ -33,7 +32,7 @@ class _MyTimePickerState extends State<MyTimePicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 100,
+        height: 50,
         padding: const EdgeInsets.all(6.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

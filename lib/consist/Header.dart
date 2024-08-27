@@ -4,15 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:newbornCare/components/CustomText.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key, required this.height});
-
-  final double height;
+  const Header({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height > 0? height : 100,
-      padding: const EdgeInsets.all(6.0),
+      height: 60,
+      margin: const EdgeInsets.only(top: 15, left: 10, right: 5),
+      padding: const EdgeInsets.all(8.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:<Widget> [
@@ -23,11 +22,15 @@ class Header extends StatelessWidget {
           ),
           // 新生儿信息
           const Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CustomText(text: "柳小满", fontSize: 18, isBold: true),
+              CustomText(text: "柳小满", fontSize: 15, isBold: true),
               CustomText(text: "1月23天", fontSize: 13)
             ],
+          ),
+          const SizedBox(
+            width: 160,
           ),
           // 新生儿照片信息
           Container(
