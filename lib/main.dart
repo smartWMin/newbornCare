@@ -35,7 +35,7 @@ class NewBornCare extends StatelessWidget {
             const Header(),
             const MyTimePicker(),
             Container(
-              height: 630,
+              height: 600,
               color: Colors.deepOrangeAccent,
               child: const Text('Hello World'),
             ),
