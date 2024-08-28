@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newbornCare/components/CustomText.dart';
+import 'package:newbornCare/components/SimpleImageButton.dart';
 import 'package:newbornCare/utils/JsonUtils.dart';
 
 class BabyCareType extends StatefulWidget {
@@ -23,16 +23,16 @@ class _BabyCareTypeState extends State<BabyCareType> {
     JsonUtils.loadJsonFromAssets('metadata/behavior.json').then((value) {
       final List<Widget> listEntry = <Widget>[];
       for (var element in value) {
-        listEntry.add(Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Image(
-                image: AssetImage('images/tom.png'),
-                width: 40,
-                height: 40),
-            CustomText(text: element['behaviorName'], fontSize: 12),
-          ],
-        ));
+        listEntry.add(
+          SimpleImageButton(
+              normalImage: element['assertImagePath'],
+              pressedImage: 'images/wife.png',
+              title: element['behaviorName'],
+              onPressed: () {
+                print(element['behaviorName']);
+              },
+              width: 40)
+        );
       }
       setState(() {
         _listEntry = listEntry;
@@ -49,11 +49,9 @@ class _BabyCareTypeState extends State<BabyCareType> {
           padding: const EdgeInsets.all(8),
           itemCount: _listEntry.length,
           itemBuilder: (BuildContext context, int index) {
-            return Container(
-              margin: const EdgeInsets.all(5),
-              height: 80,
-              width: 80,
-              padding: const EdgeInsets.all(8),
+            return SizedBox(
+              height: 60,
+              width: 70,
               child: _listEntry[index],
             );
           },
