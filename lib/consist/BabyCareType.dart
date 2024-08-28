@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newbornCare/components/SimpleImageButton.dart';
+import 'package:newbornCare/entity/BabyCareTypeInfo.dart';
 import 'package:newbornCare/utils/JsonUtils.dart';
 
 class BabyCareType extends StatefulWidget {
@@ -23,13 +24,44 @@ class _BabyCareTypeState extends State<BabyCareType> {
     JsonUtils.loadJsonFromAssets('metadata/behavior.json').then((value) {
       final List<Widget> listEntry = <Widget>[];
       for (var element in value) {
+        BabyCareTypeInfo babyCareTypeInfo = BabyCareTypeInfo(behaviorName: element['behaviorName'], assertImagePath: element['assertImagePath'], index: element['index']);
         listEntry.add(
           SimpleImageButton(
-              normalImage: element['assertImagePath'],
-              pressedImage: 'images/wife.png',
-              title: element['behaviorName'],
+              normalImage: babyCareTypeInfo.assertImagePath,
+              pressedImage: babyCareTypeInfo.assertImagePath,
+              title: babyCareTypeInfo.behaviorName,
               onPressed: () {
-                print(element['behaviorName']);
+                // 当按钮被点击时，显示对话框
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      icon: Column(
+                        children: [
+                          ClipPath.shape(
+                            shape: const CircleBorder(),
+                            child: SizedBox(
+                              height: 50,
+                              width: 50,
+                              child: Image.asset(babyCareTypeInfo.assertImagePath, fit: BoxFit.scaleDown),
+                            ),
+                          ),
+                          Text(babyCareTypeInfo.behaviorName)
+                        ],
+                        ),
+                      content: babyCareTypeInfo.getCustomWidget(),
+                      actions: <Widget>[
+                        TextButton(
+                          child: const Text('关闭'),
+                          onPressed: () {
+                            // 当用户点击关闭按钮时关闭对话框
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
               width: 40)
         );
@@ -40,8 +72,10 @@ class _BabyCareTypeState extends State<BabyCareType> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
+
     return SizedBox(
         height: 100,
         child: ListView.builder(
